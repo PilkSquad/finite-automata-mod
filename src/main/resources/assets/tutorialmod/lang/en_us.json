@@ -1,0 +1,20 @@
+{
+  "item.tutorialmod.sapphire": "Sapphire",
+  "item.tutorialmod.raw_sapphire": "Raw Sapphire",
+
+  "block.tutorialmod.sapphire_block": "Block of Sapphire",
+
+  "creativetab.tutorial_tab": "Sapphire Tutorial Tab",
+
+  "item.tutorialmod.metal_detector": "Metal Detector",
+
+  "block.tutorialmod.sound_block": "Sound Block",
+
+  "block.tutorialmod.gem_polishing_station": "Gem Polishing Station",
+
+  "block.tutorialmod.new_entity": "New Entity",
+
+  "block.tutorialmod.count_input_block": "Count Input Block",
+
+  "block.tutorialmod.count_output_block": "Count Output Block"
+}

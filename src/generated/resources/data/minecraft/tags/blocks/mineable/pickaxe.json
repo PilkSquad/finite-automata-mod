@@ -1,0 +1,8 @@
+{
+  "values": [
+    "tutorialmod:sapphire_block",
+    "tutorialmod:sound_block",
+    "tutorialmod:count_input_block",
+    "tutorialmod:count_output_block"
+  ]
+}
