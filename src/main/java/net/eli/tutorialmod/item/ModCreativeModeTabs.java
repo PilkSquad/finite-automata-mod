@@ -16,22 +16,22 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TutorialMod.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> TUTORIAL_TAB = CREATIVE_MODE_TABS.register("tutorial_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SAPPHIRE.get())).title(Component.translatable("creativetab.tutorial_tab"))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.INPUT_BLOCK.get())).title(Component.translatable("creativetab.tutorial_tab"))
                     .displayItems((pParameters, pOutput) -> {
-                        pOutput.accept(ModItems.SAPPHIRE.get());
-                        pOutput.accept(ModItems.RAW_SAPPHIRE.get());
-
-                        pOutput.accept(Items.DIAMOND);
-
-                        pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
-
-                        pOutput.accept(ModItems.METAL_DETECTOR.get());
-
-                        pOutput.accept(ModBlocks.SOUND_BLOCK.get());
-
-                        pOutput.accept(ModBlocks.GEM_POLISHING_STATION.get());
-
-                        pOutput.accept(ModBlocks.NEW_ENTITY.get());
+//                        pOutput.accept(ModItems.SAPPHIRE.get());
+//                        pOutput.accept(ModItems.RAW_SAPPHIRE.get());
+//
+//                        pOutput.accept(Items.DIAMOND);
+//
+//                        pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
+//
+//                        pOutput.accept(ModItems.METAL_DETECTOR.get());
+//
+//                        pOutput.accept(ModBlocks.SOUND_BLOCK.get());
+//
+//                        pOutput.accept(ModBlocks.GEM_POLISHING_STATION.get());
+//
+//                        pOutput.accept(ModBlocks.NEW_ENTITY.get());
 
                         pOutput.accept(ModBlocks.COUNT_INPUT_BLOCK.get());
 
@@ -39,6 +39,7 @@ public class ModCreativeModeTabs {
 
                         pOutput.accept(ModBlocks.INPUT_BLOCK.get());
                         pOutput.accept(ModBlocks.OUTPUT_BLOCK.get());
+                        pOutput.accept(ModBlocks.TRANSITION_BLOCK.get());
 
                     })
                     .build());

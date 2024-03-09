@@ -30,10 +30,13 @@ public class ModBlocks {
             () -> new CountOutputBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
 
     public static final RegistryObject<Block> INPUT_BLOCK = registerBlock("input_block",
-            () -> new CountInputBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+            () -> new InputBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     public static final RegistryObject<Block> OUTPUT_BLOCK = registerBlock("output_block",
-            () -> new CountInputBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+            () -> new OutputBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final RegistryObject<Block> TRANSITION_BLOCK = registerBlock("transition_block",
+            () -> new OutputBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
             () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.ANVIL)

@@ -29,6 +29,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.INPUT_BLOCK.get());
         this.dropSelf(ModBlocks.OUTPUT_BLOCK.get());
+        this.dropSelf(ModBlocks.TRANSITION_BLOCK.get());
     }
 
     @Override

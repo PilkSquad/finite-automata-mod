@@ -3,6 +3,9 @@
     "tutorialmod:sapphire_block",
     "tutorialmod:sound_block",
     "tutorialmod:count_input_block",
-    "tutorialmod:count_output_block"
+    "tutorialmod:count_output_block",
+    "tutorialmod:input_block",
+    "tutorialmod:output_block",
+    "tutorialmod:transition_block"
   ]
 }

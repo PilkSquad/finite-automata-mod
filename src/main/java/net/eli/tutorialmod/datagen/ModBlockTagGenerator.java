@@ -30,7 +30,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.COUNT_INPUT_BLOCK.get(),
                         ModBlocks.COUNT_OUTPUT_BLOCK.get(),
                         ModBlocks.INPUT_BLOCK.get(),
-                        ModBlocks.OUTPUT_BLOCK.get()
+                        ModBlocks.OUTPUT_BLOCK.get(),
+                        ModBlocks.TRANSITION_BLOCK.get()
                         );
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
