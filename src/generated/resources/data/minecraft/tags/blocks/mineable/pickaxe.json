@@ -6,6 +6,7 @@
     "tutorialmod:count_output_block",
     "tutorialmod:input_block",
     "tutorialmod:output_block",
-    "tutorialmod:transition_block"
+    "tutorialmod:transition_block",
+    "tutorialmod:state_block"
   ]
 }

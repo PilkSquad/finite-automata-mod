@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-09T14:47:51.5674481	Block States: tutorialmod
+// 1.20.1	2024-03-09T15:07:25.0663375	Block States: tutorialmod
 2efb76b40cc9a767f6f13ab67231d160757f91da assets/tutorialmod/blockstates/count_input_block.json
 e227f107db3f54d1d919f6660b86df21c0581389 assets/tutorialmod/blockstates/count_output_block.json
 ff720ea0aea021144b8557786f6e7f9dead2fd78 assets/tutorialmod/blockstates/gem_polishing_station.json
@@ -7,6 +7,7 @@ d5b5c3c41047cd59047c4f8bf37e3aae7907e9d0 assets/tutorialmod/blockstates/input_bl
 c3c7cb763b4735e72c5e1063b8a124fd92b176d0 assets/tutorialmod/blockstates/output_block.json
 d02d1f6c412fc7b220ed18e30956d68f9a29bbb3 assets/tutorialmod/blockstates/sapphire_block.json
 7e439f9c39ea91be588ddc78cf4cd903b5b9cb70 assets/tutorialmod/blockstates/sound_block.json
+e3c83c1fb5ef3534c86b4f7cb2486ecae5663c63 assets/tutorialmod/blockstates/state_block.json
 094d10d96496f7bebe28fface671b0bcedb80847 assets/tutorialmod/blockstates/transition_block.json
 f424b30815b54f005de43a2777f6355ee07ab7a1 assets/tutorialmod/models/block/count_input_block.json
 768d195bf0dd857eb553ba3fd0d3387e2c36354d assets/tutorialmod/models/block/count_output_block.json
@@ -14,6 +15,7 @@ afa354c5de7062dd72aca7872230d1b867932347 assets/tutorialmod/models/block/input_b
 846f7ae6d394fa7f18813dc0fd93c197e6d8060c assets/tutorialmod/models/block/output_block.json
 7fbf9623622901217c1f548068b550115551eb45 assets/tutorialmod/models/block/sapphire_block.json
 dac8730911a1737e4cdd2e70cfc8d32b0b0ba457 assets/tutorialmod/models/block/sound_block.json
+5e0e3e638f9838364d5cb8ba80b847ddf2c31dc3 assets/tutorialmod/models/block/state_block.json
 ad21816bdb054b17eeba7e912eeb65c97324c430 assets/tutorialmod/models/block/transition_block.json
 9051f1aa73b396487e17b996b0da092f474d1359 assets/tutorialmod/models/item/count_input_block.json
 c9a3385cceaf7c3c20c83353377e3abdac77938c assets/tutorialmod/models/item/count_output_block.json
@@ -23,4 +25,5 @@ b296486d7cc31c7ff70fda9c62b009e76248de21 assets/tutorialmod/models/item/new_enti
 e917acaf4f3afba74c6c50c5455c8697b9f4bca4 assets/tutorialmod/models/item/output_block.json
 2bf7f614770184be679bb0313dc04832b7fdd577 assets/tutorialmod/models/item/sapphire_block.json
 e1bcffd5dcbfb758a3668455d04d23c6efda02cf assets/tutorialmod/models/item/sound_block.json
+6355f46bd02a6197f66ec52ae68b7f1a51a875e3 assets/tutorialmod/models/item/state_block.json
 a0c59b4fa2768fbca8264203b4676f9f6af39d47 assets/tutorialmod/models/item/transition_block.json

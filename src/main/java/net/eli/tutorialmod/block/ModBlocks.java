@@ -36,7 +36,10 @@ public class ModBlocks {
             () -> new OutputBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     public static final RegistryObject<Block> TRANSITION_BLOCK = registerBlock("transition_block",
-            () -> new OutputBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+            () -> new TransitionBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final RegistryObject<Block> STATE_BLOCK = registerBlock("state_block",
+            () -> new StateBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
             () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.STONE).sound(SoundType.ANVIL)

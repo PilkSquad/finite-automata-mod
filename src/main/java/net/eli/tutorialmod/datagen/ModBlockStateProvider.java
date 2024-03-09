@@ -28,6 +28,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.INPUT_BLOCK);
         blockWithItem(ModBlocks.OUTPUT_BLOCK);
         blockWithItem(ModBlocks.TRANSITION_BLOCK);
+        blockWithItem(ModBlocks.STATE_BLOCK);
 
         simpleBlockWithItem(ModBlocks.GEM_POLISHING_STATION.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/gem_polishing_station")));

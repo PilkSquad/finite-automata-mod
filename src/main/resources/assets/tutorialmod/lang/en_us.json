@@ -19,5 +19,7 @@
   "block.tutorialmod.count_output_block": "Count Output Block",
 
   "block.tutorialmod.input_block": "Input Block",
-  "block.tutorialmod.output_block": "Output Block"
+  "block.tutorialmod.output_block": "Output Block",
+  "block.tutorialmod.transition_block": "Transition Block",
+  "block.tutorialmod.state_block": "State Block"
 }

@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-09T14:47:51.5644482	Loot Tables
+// 1.20.1	2024-03-09T15:07:25.0623368	Loot Tables
 d3b4f9d359faa9a0c897557265d25dd1b5a034a8 data/tutorialmod/loot_tables/blocks/count_input_block.json
 0473ef44daf5ef718486a9ecf4abadcd594dad98 data/tutorialmod/loot_tables/blocks/count_output_block.json
 ae181fa3b2781be60d3127b43d33111085e53d7d data/tutorialmod/loot_tables/blocks/gem_polishing_station.json
@@ -7,4 +7,5 @@ f2e988c25d9f41c56945bf2acf56c3f38c573f79 data/tutorialmod/loot_tables/blocks/new
 a6d43337fcfd4b7d449b29151fc05639765b2ad5 data/tutorialmod/loot_tables/blocks/output_block.json
 d844cbb192590a5e4278fd1a5c5906e40c594e24 data/tutorialmod/loot_tables/blocks/sapphire_block.json
 4a8cfacccc2c162b32d7ced097c65185c5c5bc88 data/tutorialmod/loot_tables/blocks/sound_block.json
+6a69112085fbc4ec61f86a286b8561f0009ddb5c data/tutorialmod/loot_tables/blocks/state_block.json
 0ac25921edd951ec49173ae759ec02dbd3a3fa7d data/tutorialmod/loot_tables/blocks/transition_block.json

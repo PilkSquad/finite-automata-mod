@@ -40,6 +40,7 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.INPUT_BLOCK.get());
                         pOutput.accept(ModBlocks.OUTPUT_BLOCK.get());
                         pOutput.accept(ModBlocks.TRANSITION_BLOCK.get());
+                        pOutput.accept(ModBlocks.STATE_BLOCK.get());
 
                     })
                     .build());
