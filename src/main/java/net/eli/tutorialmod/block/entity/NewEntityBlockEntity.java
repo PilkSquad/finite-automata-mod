@@ -1,7 +1,11 @@
 package net.eli.tutorialmod.block.entity;
 
+import com.google.common.collect.Lists;
 import net.eli.tutorialmod.item.ModItems;
-import net.eli.tutorialmod.screen.GemPolishingStationMenu;
+import net.eli.tutorialmod.screen.NewEntityMenu;
+import net.minecraft.client.gui.components.CycleButton;
+import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -17,7 +21,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.CommandBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -27,11 +31,15 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class GemPolishingStationBlockEntity extends BlockEntity implements MenuProvider {
+import java.util.List;
+
+public class NewEntityBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(2);
 
     private static final int INPUT_SLOT = 0;
     private static final int OUTPUT_SLOT = 1;
+    private int counter;
+
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
@@ -39,14 +47,21 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     private int progress = 0;
     private int maxProgress = 78;
 
-    public GemPolishingStationBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.GEM_POLISHING_BE.get(), pPos, pBlockState);
+    private EditBox machineIdentifier;
+    private EditBox machineInput;
+    private CycleButton machineType;
+    public final List<Renderable> renderables = Lists.newArrayList();
+    private String newInput;
+
+
+    public NewEntityBlockEntity(BlockPos pPos, BlockState pBlockState) {
+        super(ModBlockEntities.NEW_ENTITY_BE.get(), pPos, pBlockState);
         this.data = new ContainerData() {
             @Override
             public int get(int i) {
                 return switch (i){
-                    case 0 -> GemPolishingStationBlockEntity.this.progress;
-                    case 1 -> GemPolishingStationBlockEntity.this.maxProgress;
+                    case 0 -> NewEntityBlockEntity.this.progress;
+                    case 1 -> NewEntityBlockEntity.this.maxProgress;
                     default -> 0;
                 };
             }
@@ -54,18 +69,19 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
             @Override
             public void set(int i, int i1) {
                 switch (i){
-                    case 0 -> GemPolishingStationBlockEntity.this.progress = i;
-                    case 1 -> GemPolishingStationBlockEntity.this.maxProgress = i;
+                    case 0 -> NewEntityBlockEntity.this.progress = i;
+                    case 1 -> NewEntityBlockEntity.this.maxProgress = i;
                 }
             }
 
             @Override
             public int getCount() {
-                return 2;
+                return 3;
             }
         };
 
     }
+
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
@@ -98,19 +114,20 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.tutorialmod.gem_polishing_station");
+        return Component.translatable("block.tutorialmod.new_entity");
     }
 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
-        return new GemPolishingStationMenu(i, inventory, this, this.data);
+        return new NewEntityMenu(i, inventory, this, this.data);
     }
 
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory", itemHandler.serializeNBT());
-        pTag.putInt("gem_polishiing_station.progress", progress);
+        pTag.putInt("new_entity.progress", progress);
+        pTag.putInt("Counter", this.counter);
 
         super.saveAdditional(pTag);
     }
@@ -118,8 +135,14 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     @Override
     public void load(CompoundTag pTag) {
         super.load(pTag);
+
+        //This is to avoid conflicts with other mods only
+        //CompoundTag tutroialmodData = pTag.getCompound(TutorialMod.MOD_ID);
+
+        this.counter=pTag.getInt("Counter");
+
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
-        progress = pTag.getInt("gem_polishing_station.progress");
+        progress = pTag.getInt("new_entity.progress");
     }
 
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
@@ -138,6 +161,27 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
 
     private void resetProgress() {
         progress = 0;
+    }
+
+    public EditBox changeBox(){
+        //this.machineInput = EditBox.newInput;
+        return this.machineInput;
+    }
+
+
+
+    public EditBox getInput(){
+        return this.machineInput;
+    }
+
+    public int incrementCounter(){
+        this.counter++;
+        //setChanged() -----> to save data after save and quit, but it already saves?
+        return this.counter;
+    }
+
+    public int getCounter(){
+        return this.counter;
     }
 
     private void craftItem() {
@@ -171,4 +215,7 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     private void increaseCraftingProgress() {
         progress++;
     }
+
+
+
 }

@@ -23,7 +23,7 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class GemPolishingStationBlock extends BaseEntityBlock {
-    public static final VoxelShape SHAPE = Block.box(0,0,0,16,12,16);
+    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 12, 16);
 
     public GemPolishingStationBlock(Properties pProperties) {
         super(pProperties);
@@ -41,6 +41,13 @@ public class GemPolishingStationBlock extends BaseEntityBlock {
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+        if (pState.getBlock() != pNewState.getBlock()) {
+            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+            if (blockEntity instanceof GemPolishingStationBlockEntity) {
+                ((GemPolishingStationBlockEntity) blockEntity).drops();
+            }
+        }
+
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
     }
 
@@ -48,14 +55,14 @@ public class GemPolishingStationBlock extends BaseEntityBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if (entity instanceof GemPolishingStationBlockEntity) {
+            if(entity instanceof GemPolishingStationBlockEntity) {
                 NetworkHooks.openScreen(((ServerPlayer)pPlayer), (GemPolishingStationBlockEntity)entity, pPos);
             } else {
-                throw new IllegalStateException("Our container provider is missing!");
+                throw new IllegalStateException("Our Container provider is missing!");
             }
         }
 
-        return InteractionResult.SUCCESS;
+        return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
 
     @Nullable
@@ -67,7 +74,7 @@ public class GemPolishingStationBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        if (pLevel.isClientSide()) {
+        if(pLevel.isClientSide()) {
             return null;
         }
 

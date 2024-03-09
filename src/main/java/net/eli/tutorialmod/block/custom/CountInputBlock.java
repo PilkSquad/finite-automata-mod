@@ -1,6 +1,5 @@
 package net.eli.tutorialmod.block.custom;
 
-import net.eli.tutorialmod.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -13,7 +12,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jetbrains.annotations.Nullable;
 
 public class CountInputBlock extends Block {
     private static int count;
@@ -58,17 +56,15 @@ public class CountInputBlock extends Block {
                 BlockState adjacentBlockState = world.getBlockState(adjacentPos);
                 Block block = adjacentBlockState.getBlock();
 
-                if (block instanceof CountOutputBlock) {
-                    CountOutputBlock cob = (CountOutputBlock) block;
+                if (block instanceof CountOutputBlock cob) {
                     cob.setTetheredInputPos(pos);
                     tether_count++;
                 }
             }
 
-            if (placer instanceof Player) {
-                Player player = (Player) placer;
+            if (placer instanceof Player player) {
                 if (tether_count > 0) {
-                    player.sendSystemMessage(Component.literal("Successfully tethered " + String.valueOf(tether_count) + " count output block(s)"));
+                    player.sendSystemMessage(Component.literal("Successfully tethered " + tether_count + " count output block(s)"));
                 } else {
                     player.sendSystemMessage(Component.literal("No adjacent output block detected"));
                 }
@@ -87,8 +83,7 @@ public class CountInputBlock extends Block {
                 BlockState adjacentBlockState = pLevel.getBlockState(adjacentPos);
                 Block block = adjacentBlockState.getBlock();
 
-                if (block instanceof CountOutputBlock) {
-                    CountOutputBlock cob = (CountOutputBlock) block;
+                if (block instanceof CountOutputBlock cob) {
                     cob.resetTetheredInput();
                     break;
                 }

@@ -1,6 +1,5 @@
 package net.eli.tutorialmod.block.custom;
 
-import net.eli.tutorialmod.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -12,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
@@ -50,8 +48,7 @@ public class CountOutputBlock extends Block {
                 }
             }
 
-            if (placer instanceof Player) {
-                Player player = (Player) placer;
+            if (placer instanceof Player player) {
                 if (found) {
                     player.sendSystemMessage(Component.literal("Successfully tethered"));
                 } else {
@@ -92,8 +89,7 @@ public class CountOutputBlock extends Block {
             Block block = blockState.getBlock();
 
             // Check if the block at the position is an instance of your custom block class
-            if (block instanceof CountInputBlock) {
-                CountInputBlock countInputBlock = (CountInputBlock) block;
+            if (block instanceof CountInputBlock countInputBlock) {
                 return countInputBlock.getCount();
             }
         }

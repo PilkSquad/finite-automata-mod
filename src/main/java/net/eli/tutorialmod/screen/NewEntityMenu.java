@@ -1,7 +1,8 @@
 package net.eli.tutorialmod.screen;
 
 import net.eli.tutorialmod.block.ModBlocks;
-import net.eli.tutorialmod.block.entity.GemPolishingStationBlockEntity;
+import net.eli.tutorialmod.block.entity.NewEntityBlockEntity;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -12,19 +13,19 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class GemPolishingStationMenu extends AbstractContainerMenu {
-    public final GemPolishingStationBlockEntity blockEntity;
+public class NewEntityMenu extends AbstractContainerMenu {
+    public final NewEntityBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
 
-    public GemPolishingStationMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
+    public NewEntityMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
 
-    public GemPolishingStationMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.GEM_POLISHING_MENU.get(), pContainerId);
+    public NewEntityMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
+        super(ModMenuTypes.NEW_ENTITY_MENU.get(), pContainerId);
         checkContainerSize(inv, 2);
-        blockEntity = ((GemPolishingStationBlockEntity) entity);
+        blockEntity = ((NewEntityBlockEntity) entity);
         this.level = inv.player.level();
         this.data = data;
 
@@ -68,6 +69,10 @@ public class GemPolishingStationMenu extends AbstractContainerMenu {
 
     // THIS YOU HAVE TO DEFINE!
     private static final int TE_INVENTORY_SLOT_COUNT = 2;  // must be the number of slots you have!
+
+
+
+    //This is a mess, don't bother with it if the feature is needed
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
@@ -104,7 +109,7 @@ public class GemPolishingStationMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.GEM_POLISHING_STATION.get());
+                pPlayer, ModBlocks.NEW_ENTITY.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

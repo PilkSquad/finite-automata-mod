@@ -20,24 +20,22 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
+    protected void addTags(HolderLookup.Provider provider) {
         this.tag(ModTags.Blocks.METAL_DETECTOR_VALUABLES)
-                .add(ModBlocks.SAPPHIRE_ORE.get()).addTag(Tags.Blocks.ORES);
-
-        this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(ModBlocks.END_STONE_SAPPHIRE_ORE.get());
+                .add(ModBlocks.SAPPHIRE_BLOCK.get()).addTag(Tags.Blocks.ORES);
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(
+                .add(ModBlocks.SAPPHIRE_BLOCK.get(),
+                        ModBlocks.SOUND_BLOCK.get(),
                         ModBlocks.COUNT_INPUT_BLOCK.get(),
                         ModBlocks.COUNT_OUTPUT_BLOCK.get(),
-                        ModBlocks.SAPPHIRE_ORE.get(),
-                        ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get(),
-                        ModBlocks.NETHER_SAPPHIRE_ORE.get(),
-                        ModBlocks.END_STONE_SAPPHIRE_ORE.get(),
-                        ModBlocks.SAPPHIRE_BLOCK.get(),
-                        ModBlocks.RAW_SAPPHIRE_BLOCK.get(),
-                        ModBlocks.GEM_POLISHING_STATION.get()
-                );
+                        ModBlocks.INPUT_BLOCK.get(),
+                        ModBlocks.OUTPUT_BLOCK.get()
+                        );
+
+        this.tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(ModBlocks.SAPPHIRE_BLOCK.get());
+        this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
+                .add(ModBlocks.SOUND_BLOCK.get());
     }
 }
