@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "#",
+    "#",
+    "R"
+  ],
+  "key": {
+    "#": {
+      "item": "tutorialmod:sapphire"
+    },
+    "R": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "tutorialmod:haha"
+  }
+}
