@@ -29,12 +29,15 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(
+                        ModBlocks.COUNT_INPUT_BLOCK.get(),
+                        ModBlocks.COUNT_OUTPUT_BLOCK.get(),
                         ModBlocks.SAPPHIRE_ORE.get(),
                         ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get(),
                         ModBlocks.NETHER_SAPPHIRE_ORE.get(),
                         ModBlocks.END_STONE_SAPPHIRE_ORE.get(),
                         ModBlocks.SAPPHIRE_BLOCK.get(),
-                        ModBlocks.RAW_SAPPHIRE_BLOCK.get()
+                        ModBlocks.RAW_SAPPHIRE_BLOCK.get(),
+                        ModBlocks.GEM_POLISHING_STATION.get()
                 );
     }
 }

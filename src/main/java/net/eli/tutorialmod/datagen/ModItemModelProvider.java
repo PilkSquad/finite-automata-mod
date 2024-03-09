@@ -21,7 +21,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SAPPHIRE);
         simpleItem(ModItems.RAW_SAPPHIRE);
         simpleItem(ModItems.METAL_DETECTOR);
-
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

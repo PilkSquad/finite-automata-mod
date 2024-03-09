@@ -1,0 +1,13 @@
+{
+  "values": [
+    "tutorialmod:count_input_block",
+    "tutorialmod:count_output_block",
+    "tutorialmod:sapphire_ore",
+    "tutorialmod:deepslate_sapphire_ore",
+    "tutorialmod:nether_sapphire_ore",
+    "tutorialmod:end_stone_sapphire_ore",
+    "tutorialmod:sapphire_block",
+    "tutorialmod:raw_sapphire_block",
+    "tutorialmod:gem_polishing_station"
+  ]
+}

@@ -1,0 +1,10 @@
+// 1.20.1	2024-03-08T19:40:18.1078084	Loot Tables
+d3b4f9d359faa9a0c897557265d25dd1b5a034a8 data/tutorialmod/loot_tables/blocks/count_input_block.json
+0473ef44daf5ef718486a9ecf4abadcd594dad98 data/tutorialmod/loot_tables/blocks/count_output_block.json
+420fb5fa3aae6a1cec3da3362ed01e73ba77d461 data/tutorialmod/loot_tables/blocks/deepslate_sapphire_ore.json
+e450be6c92361964f75ea803ce8d904ae348a6c0 data/tutorialmod/loot_tables/blocks/end_stone_sapphire_ore.json
+ae181fa3b2781be60d3127b43d33111085e53d7d data/tutorialmod/loot_tables/blocks/gem_polishing_station.json
+4d0228dc64ba390b0066a2ed8b6a5b0310575192 data/tutorialmod/loot_tables/blocks/nether_sapphire_ore.json
+81e9322ae4c5141fd110a8f87cc92d7af008fd1e data/tutorialmod/loot_tables/blocks/raw_sapphire_block.json
+d844cbb192590a5e4278fd1a5c5906e40c594e24 data/tutorialmod/loot_tables/blocks/sapphire_block.json
+b850b611dc2b6371acadae391b4b8fc438c7a676 data/tutorialmod/loot_tables/blocks/sapphire_ore.json

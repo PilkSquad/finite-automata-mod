@@ -2,8 +2,12 @@ package net.eli.tutorialmod;
 
 import com.mojang.logging.LogUtils;
 import net.eli.tutorialmod.block.ModBlocks;
+import net.eli.tutorialmod.block.entity.ModBlockEntities;
 import net.eli.tutorialmod.item.ModItems;
 import net.eli.tutorialmod.item.ModCreativeModeTabs;
+import net.eli.tutorialmod.screen.GemPolishingStationScreen;
+import net.eli.tutorialmod.screen.ModMenuTypes;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,6 +40,10 @@ public class TutorialMod {
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
+
+        ModBlockEntities.register(modEventBus);
+
+        ModMenuTypes.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -44,10 +52,10 @@ public class TutorialMod {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
-            event.accept(ModItems.SAPPHIRE);
-            event.accept(ModItems.RAW_SAPPHIRE);
-        }
+//        if(event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+//            event.accept(ModItems.SAPPHIRE);
+//            event.accept(ModItems.RAW_SAPPHIRE);
+//        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -61,7 +69,7 @@ public class TutorialMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
         }
     }
 }

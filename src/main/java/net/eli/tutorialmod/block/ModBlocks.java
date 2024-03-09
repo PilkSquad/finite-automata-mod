@@ -3,6 +3,7 @@ package net.eli.tutorialmod.block;
 import net.eli.tutorialmod.TutorialMod;
 import net.eli.tutorialmod.block.custom.CountInputBlock;
 import net.eli.tutorialmod.block.custom.CountOutputBlock;
+import net.eli.tutorialmod.block.custom.GemPolishingStationBlock;
 import net.eli.tutorialmod.block.custom.SoundBlock;
 import net.eli.tutorialmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -44,13 +46,13 @@ public class ModBlocks {
                     .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
     public static final RegistryObject<Block> COUNT_INPUT_BLOCK = registerBlock("count_input_block",
-            () -> CountInputBlock.getInstance(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.WOOL)));
+            () -> new CountInputBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.WOOL)));
 
     public static final RegistryObject<Block> COUNT_OUTPUT_BLOCK = registerBlock("count_output_block",
             () -> new CountOutputBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).sound(SoundType.WOOL)));
 
     public static final RegistryObject<Block> GEM_POLISHING_STATION = registerBlock("gem_polishing_station",
-            () -> new CountOutputBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.COPPER)));
+            () -> new GemPolishingStationBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
 
 
