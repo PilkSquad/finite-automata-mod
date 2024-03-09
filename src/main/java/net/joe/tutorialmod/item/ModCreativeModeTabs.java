@@ -21,6 +21,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SAPPHIRE.get());
                         output.accept(ModItems.RAW_SAPPHIRE.get());
                         output.accept(ModBlocks.SAPPHIRE_BLOCK.get());
+                        output.accept(ModBlocks.STATE_BLOCK.get());
                     })
                     .build());
 

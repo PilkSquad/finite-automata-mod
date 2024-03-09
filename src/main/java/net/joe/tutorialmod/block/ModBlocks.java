@@ -1,6 +1,7 @@
 package net.joe.tutorialmod.block;
 
 import net.joe.tutorialmod.TutorialMod;
+import net.joe.tutorialmod.block.custom.StateBlock;
 import net.joe.tutorialmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -21,6 +22,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> SAPPHIRE_BLOCK = registerBlock("sapphire_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
+    public static final RegistryObject<Block> STATE_BLOCK = registerBlock("state_block",
+            () -> new StateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
