@@ -1,0 +1,5 @@
+// 1.20.1	2024-03-07T15:56:38.474364	Loot Tables
+ae181fa3b2781be60d3127b43d33111085e53d7d data/tutorialmod/loot_tables/blocks/gem_polishing_station.json
+f2e988c25d9f41c56945bf2acf56c3f38c573f79 data/tutorialmod/loot_tables/blocks/new_entity.json
+d844cbb192590a5e4278fd1a5c5906e40c594e24 data/tutorialmod/loot_tables/blocks/sapphire_block.json
+4a8cfacccc2c162b32d7ced097c65185c5c5bc88 data/tutorialmod/loot_tables/blocks/sound_block.json

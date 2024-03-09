@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: tutorialmod
+Specification-Vendor: bmwolfe
+Specification-Version: 1
+Implementation-Title: forge-tutorial-1.20.1
+Implementation-Version: 1.0.0
+Implementation-Vendor: bmwolfe
+Implementation-Timestamp: 2024-03-07T02:32:47-0500
+

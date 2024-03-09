@@ -1,0 +1,11 @@
+// 1.20.1	2024-03-07T15:56:38.476649	Block States: tutorialmod
+ff720ea0aea021144b8557786f6e7f9dead2fd78 assets/tutorialmod/blockstates/gem_polishing_station.json
+936f237969e6284f94c3bac7c5091a6664ff2586 assets/tutorialmod/blockstates/new_entity.json
+d02d1f6c412fc7b220ed18e30956d68f9a29bbb3 assets/tutorialmod/blockstates/sapphire_block.json
+7e439f9c39ea91be588ddc78cf4cd903b5b9cb70 assets/tutorialmod/blockstates/sound_block.json
+7fbf9623622901217c1f548068b550115551eb45 assets/tutorialmod/models/block/sapphire_block.json
+dac8730911a1737e4cdd2e70cfc8d32b0b0ba457 assets/tutorialmod/models/block/sound_block.json
+c6fe90ee84600fb9c1f42a398459a0d8b38fe198 assets/tutorialmod/models/item/gem_polishing_station.json
+b296486d7cc31c7ff70fda9c62b009e76248de21 assets/tutorialmod/models/item/new_entity.json
+2bf7f614770184be679bb0313dc04832b7fdd577 assets/tutorialmod/models/item/sapphire_block.json
+e1bcffd5dcbfb758a3668455d04d23c6efda02cf assets/tutorialmod/models/item/sound_block.json

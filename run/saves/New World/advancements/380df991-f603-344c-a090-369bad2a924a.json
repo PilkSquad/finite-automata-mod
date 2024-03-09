@@ -1,0 +1,72 @@
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2024-03-06 02:18:35 -0500"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:frozen_river": "2024-03-06 22:07:30 -0500",
+      "minecraft:stony_shore": "2024-03-06 22:07:10 -0500",
+      "minecraft:snowy_taiga": "2024-03-06 02:18:42 -0500",
+      "minecraft:frozen_ocean": "2024-03-06 14:31:13 -0500"
+    },
+    "done": false
+  },
+  "minecraft:recipes/decorations/smoker": {
+    "criteria": {
+      "has_furnace": "2024-03-06 12:56:56 -0500"
+    },
+    "done": true
+  },
+  "minecraft:story/root": {
+    "criteria": {
+      "crafting_table": "2024-03-06 12:56:59 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/campfire": {
+    "criteria": {
+      "has_coal": "2024-03-06 12:57:07 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/coal_block": {
+    "criteria": {
+      "has_coal": "2024-03-06 12:57:07 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2024-03-06 13:18:25 -0500"
+    },
+    "done": true
+  },
+  "tutorialmod:recipes/misc/sapphire_block": {
+    "criteria": {
+      "has_sapphire": "2024-03-07 02:34:23 -0500"
+    },
+    "done": true
+  },
+  "tutorialmod:recipes/misc/sapphire": {
+    "criteria": {
+      "has_sapphire_block": "2024-03-07 02:34:23 -0500"
+    },
+    "done": true
+  },
+  "tutorialmod:recipes/misc/sapphire_from_smelting_raw_sapphire": {
+    "criteria": {
+      "has_raw_sapphire": "2024-03-07 15:23:30 -0500"
+    },
+    "done": true
+  },
+  "tutorialmod:recipes/misc/sapphire_from_blasting_raw_sapphire": {
+    "criteria": {
+      "has_raw_sapphire": "2024-03-07 15:23:30 -0500"
+    },
+    "done": true
+  },
+  "DataVersion": 3465
+}
