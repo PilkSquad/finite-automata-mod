@@ -1,6 +1,7 @@
 package net.joe.tutorialmod.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -31,9 +32,25 @@ public class StateBlock extends Block {
                                  Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide) {
             // Toggle the model
-            int currentModel = pState.getValue(MODEL);
-            int nextModel = (currentModel + 1) % 4; // Cycle through 0, 1, 2
-            pLevel.setBlock(pPos, pState.setValue(MODEL, nextModel), 3);
+            int currentIndex = pState.getValue(MODEL);
+//          int nextModel = (currentModel + 1) % 4; // Cycle through 0, 1, 2, 3
+            int newIndex;
+
+            // Toggle between 0 and 2
+            if (currentIndex == 0) {
+                newIndex = 2;
+            } else {
+                newIndex = 0;
+            }
+
+            if (currentIndex == 0) {
+                pPlayer.sendSystemMessage(Component.nullToEmpty("The state is accepting"));
+            } else {
+                pPlayer.sendSystemMessage(Component.nullToEmpty("The state is non-accepting"));
+            }
+
+            BlockState newState = pState.setValue(MODEL, newIndex);
+            pLevel.setBlock(pPos, newState, 3); // Update the block state
 
             // Optionally, you can play a sound effect here for feedback
 
