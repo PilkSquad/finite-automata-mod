@@ -93,6 +93,11 @@ public class TransitionBlock extends Block {
                             paul.sendSystemMessage(Component.literal("Tethered to adjacent transition block's parent state"));
                         }
                         break;
+                    } else {
+                        // do nothing
+                        if (playerPlacedThisThang) {
+                            paul.sendSystemMessage(Component.literal("Adjacent unowned transition block detected"));
+                        }
                     }
                 }
             }
@@ -109,16 +114,19 @@ public class TransitionBlock extends Block {
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-
         if (!pLevel.isClientSide) {
             if (this.isOwned) {
+                isOwned = false;
                 // decrement number of transitions the parent state block has
                 BlockState blockState = pLevel.getBlockState(parentStateBlockPos);
                 StateBlock parentStateBlock = (StateBlock) blockState.getBlock();
                 parentStateBlock.removeTransitionBlock(this);
             }
         }
+
+        parentStateBlockPos = null;
+
+        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
     }
 
     public boolean getIsOwned() {

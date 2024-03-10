@@ -56,34 +56,54 @@ public class StateBlock extends Block {
             Set<BlockPos> visited = new HashSet<>();
             Stack<BlockPos> searchStack = new Stack<>();
             searchStack.push(pos);
+            TransitionBlock tb = null;
+            int unownedTransitionBlocksFound = 0;
 
-            while (!stack.isEmpty()) {
+            while (!searchStack.isEmpty()) {
                 BlockPos currentPos = searchStack.pop();
+
                 if (!visited.contains(currentPos)) {
                     visited.add(currentPos);
                     Block currentBlock = world.getBlockState(currentPos).getBlock();
                     if (isUnownedTransitionBlock(currentBlock)) {
-                        // if we find an unowned transition block, set its owner to me
-                        // and add the state block to ones I own
-                        TransitionBlock tb = (TransitionBlock) currentBlock;
-                        tb.addOwner(pos);
-                        addTransitionBlock(tb);
+                        // own all found transition blocks
+                        unownedTransitionBlocksFound++;
+                        tb = (TransitionBlock) currentBlock;
+                        addTransitionBlock(tb); // Ensure this method properly associates the block with 'pos'
+
+//                        System.out.println("Found unowned transition block");
                     }
 
                     for (Direction side : Direction.values()) {
                         BlockPos newPos = currentPos.relative(side);
-                        if (!visited.contains(newPos)) {
+                        BlockState newPosBlockState = world.getBlockState(newPos);
+                        Block newPosBlock = newPosBlockState.getBlock();
+//                        System.out.println(String.valueOf(newPosBlock.getDescriptionId()));
+                        if (!visited.contains(newPos) && isUnownedTransitionBlock(newPosBlock)) {
                             searchStack.push(newPos);
+//                            System.out.println("Found new potential transition block");
                         }
                     }
+                }
+            }
+
+            if (tb != null) {
+                // setting one transition block's owner sets off a chain reaction
+                tb.addOwner(pos);
+
+                if (placer instanceof Player) {
+                    Player pPlayer = (Player) placer;
+                    pPlayer.sendSystemMessage(Component.literal("Tethered " +
+                            String.valueOf(unownedTransitionBlocksFound) +
+                            " transition block(s)"));
                 }
             }
         }
     }
 
-    private boolean isUnownedTransitionBlock(Block currentBlock) {
-        if (currentBlock instanceof TransitionBlock) {
-            TransitionBlock tb = (TransitionBlock) currentBlock;
+    private boolean isUnownedTransitionBlock(Block block) {
+        if (block instanceof TransitionBlock) {
+            TransitionBlock tb = (TransitionBlock) block;
             return !tb.getIsOwned();
         } else return false;
     }
@@ -93,29 +113,27 @@ public class StateBlock extends Block {
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
 
         if (!pLevel.isClientSide) {
-            int transBlocksFreed = 0;
-
-            for (TransitionBlock tb : ownedTransBlocks) {
+            for (TransitionBlock tb : this.ownedTransBlocks) {
                 tb.removeOwner();
-                System.out.println("freed transition block");
+//                System.out.println("freed transition block");
             }
 
-            ownedTransBlocks.clear();
-            ownedTransBlocksInt = 0;
+            this.ownedTransBlocks.clear();
+            this.ownedTransBlocksInt = 0;
         }
     }
 
     public int getNumConnectedTransitions() {
-        return ownedTransBlocksInt;
+        return this.ownedTransBlocksInt;
     }
 
     public void addTransitionBlock(TransitionBlock tb) {
-        ownedTransBlocks.add(tb);
-        ownedTransBlocksInt++;
+        this.ownedTransBlocks.add(tb);
+        this.ownedTransBlocksInt++;
     }
 
     public void removeTransitionBlock(TransitionBlock tb) {
-        ownedTransBlocks.remove(tb);
-        ownedTransBlocksInt--;
+        this.ownedTransBlocks.remove(tb);
+        this.ownedTransBlocksInt--;
     }
 }
