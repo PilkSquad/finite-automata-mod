@@ -47,12 +47,10 @@ public class StateBlock extends Block {
             pPlayer.sendSystemMessage(Component.literal(
                     String.valueOf(getNumConnectedTransitions())
             ));
-
-//          int nextModel = (currentModel + 1) % 4; // Cycle through 0, 1, 2, 3
+            
             // Toggle the model
             int currentIndex = pState.getValue(MODEL);
             int newIndex;
-
             // Toggle between 0 and 2
             if (currentIndex == 0) {
                 newIndex = 2;
