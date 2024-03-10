@@ -13,6 +13,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
+import javax.swing.plaf.nimbus.State;
+
 public class TransitionBlock extends Block {
     private BlockPos parentStateBlockPos = null;
     private boolean isOwned;
@@ -117,6 +119,15 @@ public class TransitionBlock extends Block {
                 parentStateBlock.removeTransitionBlock(this);
             }
         }
+    }
+
+    public boolean getIsOwned() {
+        return isOwned;
+    }
+
+    public void addOwner(BlockPos stateBlockPos) {
+        isOwned = true;
+        parentStateBlockPos = stateBlockPos;
     }
 
     public void removeOwner() {

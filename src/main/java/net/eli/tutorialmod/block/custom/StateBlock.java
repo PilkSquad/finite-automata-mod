@@ -1,6 +1,7 @@
 package net.eli.tutorialmod.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -13,6 +14,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Stack;
 
 public class StateBlock extends Block {
     private ArrayList<TransitionBlock> ownedTransBlocks;
@@ -48,7 +52,40 @@ public class StateBlock extends Block {
             // and that transition block may not have an owner...
             // get ready to perform 3-dimensional breadth-first-search...
             // because we have groups of contiguous unowned transition blocks to find!
+
+            Set<BlockPos> visited = new HashSet<>();
+            Stack<BlockPos> searchStack = new Stack<>();
+            searchStack.push(pos);
+
+            while (!stack.isEmpty()) {
+                BlockPos currentPos = searchStack.pop();
+                if (!visited.contains(currentPos)) {
+                    visited.add(currentPos);
+                    Block currentBlock = world.getBlockState(currentPos).getBlock();
+                    if (isUnownedTransitionBlock(currentBlock)) {
+                        // if we find an unowned transition block, set its owner to me
+                        // and add the state block to ones I own
+                        TransitionBlock tb = (TransitionBlock) currentBlock;
+                        tb.addOwner(pos);
+                        addTransitionBlock(tb);
+                    }
+
+                    for (Direction side : Direction.values()) {
+                        BlockPos newPos = currentPos.relative(side);
+                        if (!visited.contains(newPos)) {
+                            searchStack.push(newPos);
+                        }
+                    }
+                }
+            }
         }
+    }
+
+    private boolean isUnownedTransitionBlock(Block currentBlock) {
+        if (currentBlock instanceof TransitionBlock) {
+            TransitionBlock tb = (TransitionBlock) currentBlock;
+            return !tb.getIsOwned();
+        } else return false;
     }
 
     @Override
