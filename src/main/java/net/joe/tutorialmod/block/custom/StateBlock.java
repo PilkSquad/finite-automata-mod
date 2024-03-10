@@ -10,11 +10,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.swing.plaf.nimbus.State;
@@ -36,8 +39,8 @@ public class StateBlock extends Block {
 
     public static final IntegerProperty MODEL = IntegerProperty.create("model", 0, 3);
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(MODEL);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(MODEL);
     }
 
     @Override
@@ -47,7 +50,7 @@ public class StateBlock extends Block {
             pPlayer.sendSystemMessage(Component.literal(
                     String.valueOf(getNumConnectedTransitions())
             ));
-            
+
             // Toggle the model
             int currentIndex = pState.getValue(MODEL);
             int newIndex;
@@ -69,6 +72,7 @@ public class StateBlock extends Block {
             pLevel.setBlock(pPos, newState, 3); // Update the block state
 
             // Optionally, you can play a sound effect here for feedback
+
 
             return InteractionResult.CONSUME;
         }
