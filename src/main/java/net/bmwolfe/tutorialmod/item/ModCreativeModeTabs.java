@@ -18,20 +18,18 @@ public class ModCreativeModeTabs {
     public static final RegistryObject<CreativeModeTab> TUTORIAL_TAB = CREATIVE_MODE_TABS.register("tutorial_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SAPPHIRE.get())).title(Component.translatable("creativetab.tutorial_tab"))
                     .displayItems((pParameters, pOutput) -> {
-                        pOutput.accept(ModItems.SAPPHIRE.get());
-                        pOutput.accept(ModItems.RAW_SAPPHIRE.get());
-
-                        pOutput.accept(Items.DIAMOND);
-
-                        pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
-
-                        pOutput.accept(ModItems.METAL_DETECTOR.get());
 
                         pOutput.accept(ModBlocks.SOUND_BLOCK.get());
 
-                        pOutput.accept(ModBlocks.GEM_POLISHING_STATION.get());
-
                         pOutput.accept(ModBlocks.NEW_ENTITY.get());
+
+                        pOutput.accept(ModBlocks.INPUT_BLOCK.get());
+
+                        pOutput.accept(ModBlocks.TRANSITION_BLOCK.get());
+
+                        pOutput.accept(ModBlocks.STATE_BLOCK.get());
+
+                        pOutput.accept(ModBlocks.OUTPUT_BLOCK.get());
 
                     })
                     .build());

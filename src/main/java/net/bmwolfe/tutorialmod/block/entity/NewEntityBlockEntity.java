@@ -50,8 +50,6 @@ public class NewEntityBlockEntity extends BlockEntity implements MenuProvider {
 
     private EditBox machineIdentifier;
     private EditBox machineInput;
-    private CycleButton machineType;
-    public final List<Renderable> renderables = Lists.newArrayList();
     private String newInput;
 
 

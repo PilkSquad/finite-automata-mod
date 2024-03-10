@@ -6,12 +6,8 @@ import net.bmwolfe.tutorialmod.block.entity.MenuInit;
 import net.bmwolfe.tutorialmod.block.entity.ModBlockEntities;
 import net.bmwolfe.tutorialmod.item.ModCreativeModeTabs;
 import net.bmwolfe.tutorialmod.item.ModItems;
-import net.bmwolfe.tutorialmod.screen.GemPolishingStationMenu;
-import net.bmwolfe.tutorialmod.screen.GemPolishingStationScreen;
 import net.bmwolfe.tutorialmod.screen.ModMenuTypes;
-import net.bmwolfe.tutorialmod.screen.NewEntityScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.tutorial.Tutorial;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -19,9 +15,7 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -65,7 +59,6 @@ public class TutorialMod {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey()== CreativeModeTabs.INGREDIENTS){
             event.accept(ModItems.SAPPHIRE);
-            event.accept((ModItems.RAW_SAPPHIRE));
         }
     }
 
@@ -81,7 +74,6 @@ public class TutorialMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
-            MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
             //MenuScreens.register(ModMenuTypes.NEW_ENTITY_MENU.get(), NewEntityScreen::new);
 
         }

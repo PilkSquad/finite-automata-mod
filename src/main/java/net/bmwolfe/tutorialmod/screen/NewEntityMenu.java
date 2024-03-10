@@ -1,9 +1,7 @@
 package net.bmwolfe.tutorialmod.screen;
 
 import net.bmwolfe.tutorialmod.block.ModBlocks;
-import net.bmwolfe.tutorialmod.block.entity.GemPolishingStationBlockEntity;
 import net.bmwolfe.tutorialmod.block.entity.NewEntityBlockEntity;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -13,8 +11,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
-
-import java.awt.*;
 
 public class NewEntityMenu extends AbstractContainerMenu {
     public final NewEntityBlockEntity blockEntity;

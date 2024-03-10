@@ -20,9 +20,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         simpleItem(ModItems.SAPPHIRE);
-        simpleItem(ModItems.METAL_DETECTOR);
-        simpleItem(ModItems.RAW_SAPPHIRE);
-
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item){

@@ -21,13 +21,20 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(ModBlocks.SAPPHIRE_BLOCK);
         blockWithItem(ModBlocks.SOUND_BLOCK);
 
-        simpleBlockWithItem(ModBlocks.GEM_POLISHING_STATION.get(),
-                new ModelFile.UncheckedModelFile(modLoc("block/gem_polishing_station")));
+        blockWithItem(ModBlocks.OUTPUT_BLOCK);
+
+        blockWithItem(ModBlocks.STATE_BLOCK);
+
         simpleBlockWithItem(ModBlocks.NEW_ENTITY.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/new_entity")));
+
+        simpleBlockWithItem(ModBlocks.INPUT_BLOCK.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/input_block")));
+
+        simpleBlockWithItem(ModBlocks.TRANSITION_BLOCK.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/transition_block")));
 
     }
 

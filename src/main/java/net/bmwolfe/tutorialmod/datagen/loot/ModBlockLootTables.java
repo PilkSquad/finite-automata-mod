@@ -19,10 +19,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        this.dropSelf(ModBlocks.SAPPHIRE_BLOCK.get());
         this.dropSelf(ModBlocks.SOUND_BLOCK.get());
-        this.dropSelf(ModBlocks.GEM_POLISHING_STATION.get());
         this.dropSelf(ModBlocks.NEW_ENTITY.get());
+        this.dropSelf(ModBlocks.INPUT_BLOCK.get());
+        this.dropSelf(ModBlocks.TRANSITION_BLOCK.get());
+        this.dropSelf(ModBlocks.STATE_BLOCK.get());
+        this.dropSelf(ModBlocks.OUTPUT_BLOCK.get());
     }
 
     @Override

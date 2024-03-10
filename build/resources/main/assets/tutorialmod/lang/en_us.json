@@ -1,20 +1,23 @@
 {
   "item.tutorialmod.sapphire": "Sapphire",
-  "item.tutorialmod.raw_sapphire": "Raw Sapphire",
-
-  "block.tutorialmod.sapphire_block": "Block of Sapphire",
 
   "creativetab.tutorial_tab": "Sapphire Tutorial Tab",
 
-  "item.tutorialmod.metal_detector": "Metal Detector",
-
   "block.tutorialmod.sound_block": "Sound Block",
-
-  "block.tutorialmod.gem_polishing_station": "Gem Polishing Station",
 
   "block.tutorialmod.new_entity": "New Entity",
 
   "gui.tutorialmodnew_entity_block_screen": "Example Screen",
 
-  "gui.tutorialmodnew_entity_block_screen.button.example_button": "Button"
+  "gui.tutorialmodnew_entity_block_screen.button.example_button": "Button",
+
+  "gui.tutorialmodinput_block_screen.button.compute_button": "Compute",
+
+  "block.tutorialmod.input_block": "Input Block",
+
+  "block.tutorialmod.transition_block": "Transition Block",
+
+  "block.tutorialmod.state_block": "State Block",
+
+  "block.tutorialmod.output_block" : "Output Block"
 }

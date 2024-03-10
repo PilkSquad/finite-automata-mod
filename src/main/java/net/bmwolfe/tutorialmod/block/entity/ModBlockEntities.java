@@ -16,15 +16,22 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, TutorialMod.MOD_ID);
 
-
-    public static final RegistryObject<BlockEntityType<GemPolishingStationBlockEntity>> GEM_POLISHING_BE =
-            BLOCK_ENTITIES.register("gem_polishing_be", ()->
-                    BlockEntityType.Builder.of(GemPolishingStationBlockEntity::new,
-                            ModBlocks.GEM_POLISHING_STATION.get()).build(null));
     public static final RegistryObject<BlockEntityType<NewEntityBlockEntity>> NEW_ENTITY_BE =
             BLOCK_ENTITIES.register("new_entity_be", ()->
                     BlockEntityType.Builder.of(NewEntityBlockEntity::new,
                             ModBlocks.NEW_ENTITY.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<InputBlockEntity>> INPUT_BE =
+            BLOCK_ENTITIES.register("input_be", ()->
+                    BlockEntityType.Builder.of(InputBlockEntity::new,
+                            ModBlocks.INPUT_BLOCK.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<TransitionBlockEntity>> TRANSITION_BE =
+            BLOCK_ENTITIES.register("transition_be", ()->
+                    BlockEntityType.Builder.of(TransitionBlockEntity::new,
+                            ModBlocks.TRANSITION_BLOCK.get()).build(null));
+
+
 
     public static void register(IEventBus eventBus){
         BLOCK_ENTITIES.register(eventBus);
