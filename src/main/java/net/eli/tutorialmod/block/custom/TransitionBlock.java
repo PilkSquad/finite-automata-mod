@@ -104,7 +104,7 @@ public class TransitionBlock extends Block {
         }
     }
 
-    private BlockPos getParentStateBlockPos() {
+    public BlockPos getParentStateBlockPos() {
         return parentStateBlockPos;
     }
 

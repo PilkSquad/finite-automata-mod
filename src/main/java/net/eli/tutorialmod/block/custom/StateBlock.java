@@ -48,9 +48,38 @@ public class StateBlock extends Block {
         super.setPlacedBy(world, pos, state, placer, stack);
 
         if (!world.isClientSide) {
+            boolean foundUnownedTransBlock = false;
+            boolean foundOwnedTransBlock = false;
+
+            for (Direction side : Direction.values()) {
+                BlockPos newPos = pos.relative(side);
+                BlockState newPosBlockState = world.getBlockState(newPos);
+                Block newPosBlock = newPosBlockState.getBlock();
+                if (newPosBlock instanceof TransitionBlock) {
+                    if (isUnownedTransitionBlock(newPosBlock)) {
+                        foundUnownedTransBlock = true;
+                    } else {
+                        foundOwnedTransBlock = true;
+                    }
+                }
+            }
+
+            if (!foundUnownedTransBlock) {
+                if (foundOwnedTransBlock) {
+                    if (placer instanceof Player) {
+                        Player pPlayer = (Player) placer;
+                        pPlayer.sendSystemMessage(Component.literal(
+                                "CAUTION: Detected owned transition block(s)! Deleting this block will free the adjacent transition blocks."
+                        ));
+                    }
+
+                    return; // only found owned transition blocks
+                }
+            }
+
             // when we place a state block, there may be an adjacent transition block...
             // and that transition block may not have an owner...
-            // get ready to perform 3-dimensional breadth-first-search...
+            // get ready to perform 3-dimensional depth-first-search...
             // because we have groups of contiguous unowned transition blocks to find!
 
             Set<BlockPos> visited = new HashSet<>();
