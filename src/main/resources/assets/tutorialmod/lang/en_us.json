@@ -4,6 +4,7 @@
 
   "block.tutorialmod.sapphire_block": "Block of Sapphire",
   "block.tutorialmod.state_block": "State Block",
+  "block.tutorialmod.transition_block": "Transition Block",
 
   "creativetab.custom_tab": "Modded Items"
 }
